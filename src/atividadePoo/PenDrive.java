@@ -12,19 +12,9 @@ public class PenDrive {
 	Scanner scan = new Scanner(System.in);
 
 	//Função para adicionar arquivos ao pendrive 
-	public void adicionaArquivo() {
-
+	public void adicionaArquivo(String nomeAux, double memoriaAux) {
 		//verifica se o pen drive está conectado
 		if (estaConectado == true) {
-			//solicita o nome e o tamanha do arquivo
-			System.out.println("Digite o nome do arquivo que deseja adicionar ao pen drive:");
-			String nomeAux = scan.nextLine();
-			System.out.println("Digite o tamanho do arquivo (GB):");
-			double memoriaAux = scan.nextDouble();
-
-			//limpa o buffer
-			scan.nextLine();
-
 			//verifica se há espaço de armazenamento no pen drive
 			if(memoriaAux <= capacidadeGB) {
 				//concatena o nome e o tamanho do arquivo em uma string separada por virgula
@@ -71,4 +61,46 @@ public class PenDrive {
 			System.out.println(partes[0] +" " + partes[1] + " Gb");
 		}
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getCapacidadeGB() {
+		return capacidadeGB;
+	}
+
+	public void setCapacidadeGB(double capacidadeGB) {
+		this.capacidadeGB = capacidadeGB;
+	}
+
+	public ArrayList<String> getArquivos() {
+		return arquivos;
+	}
+
+	public void setArquivos(ArrayList<String> arquivos) {
+		this.arquivos = arquivos;
+	}
+
+	public boolean isEstaConectado() {
+		return estaConectado;
+	}
+
+	public void setEstaConectado(boolean estaConectado) {
+		this.estaConectado = estaConectado;
+	}
+
+	public Scanner getScan() {
+		return scan;
+	}
+
+	public void setScan(Scanner scan) {
+		this.scan = scan;
+	}
+
+	
 }

@@ -21,6 +21,7 @@ public class TestePenDrive {
 				System.out.println("4. Desconetar Pen Drive");
 				System.out.println("====================================");
 				opcao = scan.nextInt();
+				scan.nextLine(); 
 				
 										
 				switch (opcao) {	
@@ -29,7 +30,19 @@ public class TestePenDrive {
 					opcao = -1;
 					break;
 			 	case 2:
-					penDrive.adicionaArquivo();
+				if(penDrive.isEstaConectado() == true) {
+					//solicita o nome e o tamanha do arquivo
+					System.out.println("Digite o nome do arquivo que deseja adicionar ao pen drive:");
+					String nomeAux = scan.nextLine();
+					System.out.println("Digite o tamanho do arquivo (GB):");
+					double memoriaAux = scan.nextDouble();
+					//limpa o buffer
+					scan.nextLine();
+					//chama a função para adicionar o arquivo
+					penDrive.adicionaArquivo(nomeAux, memoriaAux);
+				}else {
+					System.out.println("Erro!, o pen drive não está conectado!");
+				}
 					break;
 					
 			 	case 3:
